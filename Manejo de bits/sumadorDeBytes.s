@@ -2,15 +2,15 @@
 
     w: .word 0x901A0002
 
-    mascara: .byte 0xFF
+    mascara: .word 0x000000FF
 
 .text
 
     lw s0, w #Cargo w en el registro s0
-    lb s1, mascara #Cargo la mascara que usare para desempaquetar cada uno de los bytes de w (s0)
+    lw s1, mascara #Cargo la mascara que usare para desempaquetar cada uno de los bytes de w (s0)
 
     PrimerByte:
-    
+
         and t0, s0, s1 #Desempaqueto el PrimerByte de w(s0) y lo cargo en t0, t0 = 0x00000002
 
     SegundoByte:

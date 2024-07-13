@@ -1,10 +1,10 @@
-.data:
+.data
 
      w: .word 0x37A2F011
 
-     mascara: .byte 0xFF
+     mascara: .word 0x000000FF
 
-.text:
+.text
 
     lw s0,w #Cargo a w en el registro s0
     lw s1, mascara #Cargo la mascara que usare para desempaquetar los Bytes de w(s0) en s1
@@ -44,5 +44,5 @@
     fin:
 
         mv a0, s3 #Muevo el valor de s3(Contador de Bytes impares en w(s0)) a a0
-        
+
         #En este caso el valor de a0, al final del programa deberia ser 2, ya que 0x37(UltimoByte) y 0x11(PrimerByte) son impares

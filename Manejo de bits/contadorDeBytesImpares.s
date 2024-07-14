@@ -15,7 +15,7 @@
 
         and t0, s0, s1 #Desempaqueto el PrimerByte de w(s0) y lo cargo en t0, t0 = 0x00000011
         andi t0, t0, 1 #Me quedo con el ultimo bit de t0 y realizo un "and" con 1, cargo el resultado en t0
-        bne t0, s2, Byte1 #Si t0 es distinto a s2(1), significa que es par, lo descarto y avanzo al siguiente Byte de w(s0)
+        bne t0, s2, SegundoByte #Si t0 es distinto a s2(1), significa que es par, lo descarto y avanzo al siguiente Byte de w(s0)
         addi s3, s3, 1 #Al contrario, si t0 es igual a s2(1), es impar y sumo 1 a s3(Contador de Bytes impares en w(s0))
     
     SegundoByte:
@@ -23,7 +23,7 @@
         srli t1, s0, 8 #Realizo un desplazamiento de 8 bits a la derecha en w(s0) y lo cargo en t1, t1 = 0x0037A2F0 
         and t1, t1, s1 #Desempaqueto el SegundoByte de w(s0) y lo cargo en t1, t1 = 0x000000F0
         andi t1, t1, 1 #Idem que con el PrimerByte
-        bne t1, s2, Byte2 #Idem que con el PrimerByte
+        bne t1, s2, TercerByte #Idem que con el PrimerByte
         addi s3, s3, 1 #Idem que con el PrimerByte
    
     TercerByte:
@@ -31,7 +31,7 @@
         srli t2, s0, 16 #Realizo un desplazamiento de 16 bits a la derecha em w(s0) y lo cargo en t2, t2 = 0x000037A2 
         and t2, t2, s1 #Desempaqueto el TercerByte de w(s0) y lo cargo en t2, t2 = 0x000000A2
         andi t2, t2, 1 #Idem que con el PrimerByte
-        bne t2, s2, Byte3 #Idem que con el PrimerByte
+        bne t2, s2, UltimoByte #Idem que con el PrimerByte
         addi s3, s3, 1 #Idem que con el PrimerByte
 
     UltimoByte:

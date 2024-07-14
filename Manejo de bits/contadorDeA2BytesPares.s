@@ -5,6 +5,7 @@
     mascara: .word 0x0000FFFF
 
 .text
+
     lw s0, datos #Cargo "datos" en el registro s0
     lw t0, mascara #Cargo la mascara que usare para desempaquetar los datos (De a 2 Bytes) de s0 en t0
     li t1, 1 #Cargo en t1 el valor inmediato 1, lo usare para realizar una comparacion y obtener la paridad de cada uno de los datos (De a 2 Bytes) de s0
@@ -21,7 +22,7 @@
         
         srli s0, s0, 16 #Realizo un desplazamiento de 16 bits a la derecha en s0 y lo cargo en s0,s0 = 0x00009018
         andi s0, s0, 1 #Idem que con el Dato1
-        beq t4, t1, comparacion #Idem que con el Dato1
+        beq t4, t1, Comparacion #Idem que con el Dato1
         addi a0, a0, 1 #Idem que con el Dato1
     
     Comparacion:

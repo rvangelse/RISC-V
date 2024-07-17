@@ -17,20 +17,20 @@
  
     while:
 
-    beq t0, s1, Comparacion #Si t0(contador de mi ciclo while) = s2(longitud del array "notas"),significa que recorrio todo el arreglo y salta a la etiqueta "Comparacion"
-    lbu t2, 0(s0) #Cargo el elemento de una posicion dada del array "notas"(s0) en t2
-    blt t2, s2, sumo #Realizo una comparacion entre t2 y s2(0xA0). Si el elemento en t2 es menor a s2(0xA0), salto a la etiqueta "sumo"
-    j continue #Si no, salto a la etiqueta "continue"
+        beq t0, s1, Comparacion #Si t0(contador de mi ciclo while) = s2(longitud del array "notas"),significa que recorrio todo el arreglo y salta a la etiqueta "Comparacion"
+        lbu t2, 0(s0) #Cargo el elemento de una posicion dada del array "notas"(s0) en t2
+        blt t2, s2, sumo #Realizo una comparacion entre t2 y s2(0xA0). Si el elemento en t2 es menor a s2(0xA0), salto a la etiqueta "sumo"
+        j continue #Si no, salto a la etiqueta "continue"
 
-    sumo:
+        sumo:
 
-    addi t1, t1, 1 #Sumo 1 al valor previo de t1(cantidad de elementos menores a 0xA0(s2) en el array "notas")
+            addi t1, t1, 1 #Sumo 1 al valor previo de t1(cantidad de elementos menores a 0xA0(s2) en el array "notas")
 
-    continue:
+        continue:
 
-    addi t0, t0, 1 #Sumo 1 al valor previo de t0(contador del ciclo while)
-    addi s0, s0, 1 #Sumo 1 Byte a la direccion de memoria cargada en s0, es decir, me desplazo al siguiente elemento del array "notas"
-    j while #Regreso al ciclo while para seguir iterando
+            addi t0, t0, 1 #Sumo 1 al valor previo de t0(contador del ciclo while)
+            addi s0, s0, 1 #Sumo 1 Byte a la direccion de memoria cargada en s0, es decir, me desplazo al siguiente elemento del array "notas"
+            j while #Regreso al ciclo while para seguir iterando
 
     Comparacion:
 
@@ -41,11 +41,11 @@
 
     devuelvoUno:
 
-    li a0, 1 #Cargo el valor inmediato 1 en a0
+        li a0, 1 #Cargo el valor inmediato 1 en a0
 
     fin: 
 
-    li a7, 10
-    ecall
+        li a7, 10
+        ecall
 
 #Al finalizar la ejecucion del programa, el valor cargado en a0 deberia ser 0 porque menos de la mitad de los valores valen menos que 0xA0

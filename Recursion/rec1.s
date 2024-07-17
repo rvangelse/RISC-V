@@ -24,7 +24,7 @@
         mv t0, a0 #Muevo el valor de a0 (a0 = rec(n-1)) a t0
         lw a0, 4(sp) #Cargo en a0, el valor que habia guardado previamente en el segundo espacio de la pila, es decir restituyo en a0, su valor previo a realizar la segunda llamada a la funcion rec, a0 = n 
         slli a0, a0, 1 #Realizo un desplazamiento de 1 bit a la izquierda en a0 y lo cargo en a0, esto equivale a multiplicar por 2, el valor previo de a0, es decir, a0 = 2*n
-        add a0, a0, t0 # #Realizo una suma entre a0(2*n) y t0 (rec(n-1)) y lo cargo en a0, a0 = 2*n + rec(n-1)
+        add a0, a0, t0 #Realizo una suma entre a0(2*n) y t0 (rec(n-1)) y lo cargo en a0, a0 = 2*n + rec(n-1)
         j epilogo #Salto a epilogo para retornar
     
     casoBase:

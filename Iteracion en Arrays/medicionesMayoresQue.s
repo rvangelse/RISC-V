@@ -28,8 +28,8 @@
 
         continue:
 
-            addi s0, s0, 2 #Realizo un desplazamiento de 1 bit a la derecha en s1, esto es equivalente a dividir por 2 al valor cargado en s1(longitud del array "mediciones")
-            addi t0, t0, 1 #Sumo 1 Byte a la direccion de memoria cargada en s0, es decir, me desplazo al siguiente elemento del array "mediciones"
+            addi t0, t0, 1 #Sumo 1 al valor previo de t0(contador del ciclo while)
+            addi s0, s0, 2 #Sumo 2 Bytes a la direccion de memoria cargada en s0, es decir, me desplazo al siguiente elemento del array "mediciones"
             j while #Regreso al ciclo while para seguir iterando
 
         Comparacion:
